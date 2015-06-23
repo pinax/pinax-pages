@@ -26,6 +26,10 @@ setup(
     test_suite="runtests.runtests",
     tests_require=[
     ],
+    install_requires=[
+        "django-markitup>=2.2.2",
+        "django-reversion>=1.8.7",
+    ],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
