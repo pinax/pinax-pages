@@ -62,8 +62,6 @@ def page_edit(request, path):
             page.path = path
             page.save()
             return redirect(page)
-        else:
-            print form.errors
     else:
         form = PageForm(instance=page, initial={"path": path})
 

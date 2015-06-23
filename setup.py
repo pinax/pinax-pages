@@ -16,7 +16,7 @@ setup(
     description="",
     name="pinax-cms",
     long_description=read("README.rst"),
-    version="0.1",
+    version="0.1.1",
     url="http://pinax-cms.rtfd.org/",
     license="MIT",
     packages=find_packages(),
