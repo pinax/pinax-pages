@@ -1,6 +1,3 @@
-pinax-starter-app
-=================
-
 This app was developed as part of the Pinax ecosystem but is just a Django app
 and can be used independently of other Pinax apps. To learn more about Pinax,
 see http://pinaxproject.com/
