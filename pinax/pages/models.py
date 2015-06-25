@@ -9,8 +9,6 @@ from django.utils.translation import ugettext_lazy as _
 
 import reversion
 
-from markitup.fields import MarkupField
-
 from .conf import settings
 from .managers import PublishedPageManager
 
@@ -24,7 +22,8 @@ class Page(models.Model):
 
     title = models.CharField(max_length=100)
     path = models.CharField(max_length=100, unique=True)
-    body = MarkupField()
+    body = models.TextField()
+    body_html = models.TextField(blank=True, editable=False)
     status = models.IntegerField(choices=STATUS_CHOICES, default=2)
     publish_date = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(editable=False, default=timezone.now)
@@ -45,6 +44,7 @@ class Page(models.Model):
 
     def save(self, *args, **kwargs):
         self.updated = timezone.now()
+        self.body_html = settings.PINAX_PAGES_MARKUP_RENDERER(self.body)
         super(Page, self).save(*args, **kwargs)
 
     def clean_fields(self, exclude=None):
