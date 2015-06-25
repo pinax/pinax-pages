@@ -38,7 +38,7 @@ def page(request, path):
         else:
             raise Http404
 
-    return render(request, "pages/page_detail.html", {
+    return render(request, "pinax/pages/page_detail.html", {
         "page": page,
         "editable": editable,
     })
@@ -65,7 +65,7 @@ def page_edit(request, path):
     else:
         form = PageForm(instance=page, initial={"path": path})
 
-    return render(request, "pages/page_edit.html", {
+    return render(request, "pinax/pages/page_edit.html", {
         "path": path,
         "form": form
     })
@@ -78,7 +78,7 @@ def file_index(request):
     ctx = {
         "files": File.objects.all(),
     }
-    return render(request, "pages/file_index.html", ctx)
+    return render(request, "pinax/pages/file_index.html", ctx)
 
 
 def file_create(request):
@@ -100,7 +100,7 @@ def file_create(request):
     ctx = {
         "form": form,
     }
-    return render(request, "pages/file_create.html", ctx)
+    return render(request, "pinax/pages/file_create.html", ctx)
 
 
 def file_download(request, pk, *args):
