@@ -1,9 +1,9 @@
-site_name: pinax-cms
+site_name: pinax-pages
 pages:
 - [index.md, Home]
 - [changelog.md, Change Log]
 theme: readthedocs
-repo_url: https://github.com/pinax/pinax-cms
-site_description: "an lightweight CMS app for Django projects born out of Symposion"
+repo_url: https://github.com/pinax/pinax-pages
+site_description: "an lightweight pages app for Django projects born out of Symposion"
 site_author: "Pinax Team"
 markdown_extensions: [admonition]

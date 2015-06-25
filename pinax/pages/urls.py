@@ -11,6 +11,6 @@ urlpatterns = patterns(
     url(r"^files/create/$", file_create, name="file_create"),
     url(r"^files/(\d+)/([^/]+)$", file_download, name="file_download"),
     url(r"^files/(\d+)/delete/$", file_delete, name="file_delete"),
-    url(r"^(?P<path>%s)_edit/$" % PAGE_RE, page_edit, name="cms_page_edit"),
-    url(r"^(?P<path>%s)$" % PAGE_RE, page, name="cms_page"),
+    url(r"^(?P<path>%s)_edit/$" % PAGE_RE, page_edit, name="pages_page_edit"),
+    url(r"^(?P<path>%s)$" % PAGE_RE, page, name="pages_page"),
 )

@@ -37,7 +37,7 @@ class Page(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ("cms_page", [self.path])
+        return ("pages_page", [self.path])
 
     @property
     def is_community(self):

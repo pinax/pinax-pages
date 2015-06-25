@@ -6,5 +6,5 @@ except ImportError:
 
 urlpatterns = patterns(
     "",
-    (r"^", include("pinax.cms.urls")),
+    (r"^", include("pinax.pages.urls")),
 )

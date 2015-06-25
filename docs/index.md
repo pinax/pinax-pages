@@ -1,4 +1,4 @@
-# pinax-cms
+# pinax-pages
 
 
 !!! note "Pinax Ecosystem"
@@ -12,16 +12,16 @@
 
 Install the development version:
 
-    pip install pinax-cms
+    pip install pinax-pages
 
-Add `pinax-cms` to your `INSTALLED_APPS` setting:
+Add `pinax-pages` to your `INSTALLED_APPS` setting:
 
     INSTALLED_APPS = (
         # ...
-        "pinax.cms",
+        "pinax.pages",
         # ...
     )
 
 Add entry to your `urls.py`:
 
-    url(r"^", include("pinax.cms.urls"))
+    url(r"^", include("pinax.pages.urls"))

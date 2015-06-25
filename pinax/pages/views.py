@@ -14,7 +14,7 @@ def can_edit(page, user):
     if page and page.is_community:
         return True
     else:
-        return user.has_perm("cms.change_page")
+        return user.has_perm("pages.change_page")
 
 
 def can_upload(user):
@@ -34,11 +34,11 @@ def page(request, path):
 
     if page is None:
         if editable:
-            return redirect("cms_page_edit", path=path)
+            return redirect("pages_page_edit", path=path)
         else:
             raise Http404
 
-    return render(request, "cms/page_detail.html", {
+    return render(request, "pages/page_detail.html", {
         "page": page,
         "editable": editable,
     })
@@ -65,7 +65,7 @@ def page_edit(request, path):
     else:
         form = PageForm(instance=page, initial={"path": path})
 
-    return render(request, "cms/page_edit.html", {
+    return render(request, "pages/page_edit.html", {
         "path": path,
         "form": form
     })
@@ -78,7 +78,7 @@ def file_index(request):
     ctx = {
         "files": File.objects.all(),
     }
-    return render(request, "cms/file_index.html", ctx)
+    return render(request, "pages/file_index.html", ctx)
 
 
 def file_create(request):
@@ -100,7 +100,7 @@ def file_create(request):
     ctx = {
         "form": form,
     }
-    return render(request, "cms/file_create.html", ctx)
+    return render(request, "pages/file_create.html", ctx)
 
 
 def file_download(request, pk, *args):

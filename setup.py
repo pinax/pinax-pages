@@ -14,14 +14,14 @@ setup(
     author="",
     author_email="",
     description="",
-    name="pinax-cms",
+    name="pinax-pages",
     long_description=read("README.rst"),
     version="0.1.1",
-    url="http://pinax-cms.rtfd.org/",
+    url="http://pinax-pages.rtfd.org/",
     license="MIT",
     packages=find_packages(),
     package_data={
-        "cms": []
+        "pages": []
     },
     test_suite="runtests.runtests",
     tests_require=[
