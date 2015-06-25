@@ -1,7 +1,6 @@
 import os
 import re
 
-from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -12,6 +11,7 @@ import reversion
 
 from markitup.fields import MarkupField
 
+from .conf import settings
 from .managers import PublishedPageManager
 
 
@@ -49,7 +49,7 @@ class Page(models.Model):
 
     def clean_fields(self, exclude=None):
         super(Page, self).clean_fields(exclude)
-        if not re.match(settings.SYMPOSION_PAGE_REGEX, self.path):
+        if not re.match(settings.PINAX_PAGES_PAGE_REGEX, self.path):
             raise ValidationError(
                 {"path": [_("Path can only contain letters, numbers and hyphens and end with /")]})
 

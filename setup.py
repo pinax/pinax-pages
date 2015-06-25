@@ -27,6 +27,7 @@ setup(
     tests_require=[
     ],
     install_requires=[
+        "django-appconf>=1.0.1",
         "django-markitup>=2.2.2",
         "django-reversion>=1.8.7",
     ],
