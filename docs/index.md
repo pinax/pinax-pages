@@ -19,6 +19,7 @@ Add `pinax-pages` to your `INSTALLED_APPS` setting:
     INSTALLED_APPS = (
         # ...
         "pinax.pages",
+        "reversion",
         # ...
     )
 
