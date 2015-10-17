@@ -11,7 +11,7 @@ class DefaultHookSet(object):
         self.settings = settings
 
     def parse_content(self, content):
-        return self.settings.MARKUP_RENDERER(content)
+        return self.settings.PINAX_PAGES_MARKUP_RENDERER(content)
 
     def validate_path(self, path):
         if not re.match(self.settings.PINAX_PAGES_PAGE_REGEX, path):
