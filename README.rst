@@ -1,9 +1,5 @@
-This app was developed as part of the Pinax ecosystem but is just a Django app
-and can be used independently of other Pinax apps. To learn more about Pinax,
-see http://pinaxproject.com/
-
-pinax-pages
-=========
+Pinax Pages
+============
 
 .. image:: https://img.shields.io/travis/pinax/pinax-pages.svg
     :target: https://travis-ci.org/pinax/pinax-pages
@@ -19,9 +15,19 @@ pinax-pages
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :target:  https://pypi.python.org/pypi/pinax-pages/
+    
+    
+Pinax
+-------
+Pinax is an open-source platform built on the Django Web Framework. It is an ecosystem of reusable Django apps, themes, and starter project templates.
+This collection can be found at http://pinaxproject.com.
 
+This app was developed as part of the Pinax ecosystem but is just a Django app and can be used independently of other Pinax apps.
 
-Welcome to the documentation for pinax-pages!
+pinax-pages
+------------
+
+pinax-pages is a lightweight CMS born out of Symposion.
 
 
 Running the Tests
@@ -31,3 +37,21 @@ Running the Tests
 
     $ pip install detox
     $ detox
+    
+
+Documentation
+--------------
+
+The Pinax documentation is available at http://pinaxproject.com/pinax/.
+
+
+Code of Conduct
+-----------------
+
+In order to foster a kind, inclusive, and harassment-free community, the Pinax Project has a Code of Conduct, which can be found here  http://pinaxproject.com/pinax/code_of_conduct/.
+
+
+Pinax Project Blog and Twitter
+-------------------------------
+
+For updates and news regarding the Pinax Project, please follow us on Twitter at [@pinaxproject](https://twitter.com/pinaxproject) and check out our blog http://blog.pinaxproject.com.
