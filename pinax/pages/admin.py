@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-import reversion.admin as VersionAdmin
+from reversion.admin import VersionAdmin
 
 from .models import Page
 
