@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-import reversion
+import reversion.admin as VersionAdmin
 
 from .models import Page
 
 
-class PageAdmin(reversion.VersionAdmin):
+class PageAdmin(VersionAdmin):
     pass
 
 

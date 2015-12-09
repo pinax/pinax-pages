@@ -5,12 +5,13 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-import reversion
+from reversion import revisions as reversion
 
 from .hooks import hookset
 from .managers import PublishedPageManager
 
 
+@reversion.register
 class Page(models.Model):
 
     STATUS_CHOICES = (
@@ -48,9 +49,6 @@ class Page(models.Model):
     def clean_fields(self, exclude=None):
         super(Page, self).clean_fields(exclude)
         hookset.validate_path(self.path)
-
-
-reversion.register(Page)
 
 
 def generate_filename(instance, filename):

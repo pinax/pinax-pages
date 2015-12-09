@@ -28,7 +28,7 @@ setup(
     ],
     install_requires=[
         "django-appconf>=1.0.1",
-        "django-reversion>=1.8.7",
+        "django-reversion>=1.10",
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
