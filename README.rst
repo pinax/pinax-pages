@@ -30,7 +30,7 @@ This app was developed as part of the Pinax ecosystem but is just a Django app a
 pinax-pages
 ------------
 
-pinax-pages is a lightweight CMS born out of Symposion.
+``pinax-pages`` is a lightweight CMS born out of ``symposion``.
 
 
 Running the Tests
