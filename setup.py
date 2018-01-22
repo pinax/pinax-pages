@@ -1,23 +1,54 @@
-import codecs
-
-from os import path
 from setuptools import find_packages, setup
 
+VERSION = "0.5.0"
+LONG_DESCRIPTION = """
+.. image:: http://pinaxproject.com/pinax-design/patches/blank.svg
+    :target: https://pypi.python.org/pypi/pinax-pages/
 
-def read(*parts):
-    filename = path.join(path.dirname(__file__), *parts)
-    with codecs.open(filename, encoding="utf-8") as fp:
-        return fp.read()
+===================
+Pinax Pages
+===================
+.. image:: https://img.shields.io/pypi/v/pinax-pages.svg
+    :target: https://pypi.python.org/pypi/pinax-pages/
+\
+.. image:: https://img.shields.io/circleci/project/github/pinax/pinax-pages.svg
+    :target: https://circleci.com/gh/pinax/pinax-pages
+.. image:: https://img.shields.io/codecov/c/github/pinax/pinax-pages.svg
+    :target: https://codecov.io/gh/pinax/pinax-pages
+.. image:: https://img.shields.io/github/contributors/pinax/pinax-pages.svg
+    :target: https://github.com/pinax/pinax-pages/graphs/contributors
+.. image:: https://img.shields.io/github/issues-pr/pinax/pinax-pages.svg
+    :target: https://github.com/pinax/pinax-pages/pulls
+.. image:: https://img.shields.io/github/issues-pr-closed/pinax/pinax-pages.svg
+    :target: https://github.com/pinax/pinax-pages/pulls?q=is%3Apr+is%3Aclosed
+\
+.. image:: http://slack.pinaxproject.com/badge.svg
+    :target: http://slack.pinaxproject.com/
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :target: https://opensource.org/licenses/MIT/
+\
 
+A light weight CMS born out of Symposion
+
+Supported Django and Python Versions
+------------------------------------
++-----------------+-----+-----+-----+-----+
+| Django / Python | 2.7 | 3.4 | 3.5 | 3.6 |
++=================+=====+=====+=====+=====+
+|  1.11           |  *  |  *  |  *  |  *  |
++-----------------+-----+-----+-----+-----+
+|  2.0            |     |  *  |  *  |  *  |
++-----------------+-----+-----+-----+-----+
+"""
 
 setup(
-    author="",
-    author_email="",
-    description="",
+    author="Pinax Team",
+    author_email="team@pinaxproject.com",
+    description="a Django pages app",
     name="pinax-pages",
-    long_description=read("README.rst"),
-    version="0.4.2",
-    url="http://pinax-pages.rtfd.org/",
+    long_description=LONG_DESCRIPTION,
+    version=VERSION,
+    url="https://github.com/pinax/pinax-pages/",
     license="MIT",
     packages=find_packages(),
     package_data={
@@ -28,7 +59,6 @@ setup(
     ],
     install_requires=[
         "django-appconf>=1.0.1",
-        "django-reversion>=1.10",
     ],
     classifiers=[
         "Development Status :: 4 - Beta",

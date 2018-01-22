@@ -1,17 +1,14 @@
 import os
 
-from django.core.urlresolvers import reverse
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-
-from reversion import revisions as reversion
 
 from .hooks import hookset
 from .managers import PublishedPageManager
 
 
-@reversion.register
 class Page(models.Model):
 
     STATUS_CHOICES = (
@@ -30,12 +27,11 @@ class Page(models.Model):
 
     published = PublishedPageManager()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
-    @models.permalink
     def get_absolute_url(self):
-        return ("pages_page", [self.path])
+        return reverse("pinax_pages:pages_page", args=[self.path])
 
     @property
     def is_community(self):
@@ -45,10 +41,33 @@ class Page(models.Model):
         self.updated = timezone.now()
         self.body_html = hookset.parse_content(self.body)
         super(Page, self).save(*args, **kwargs)
+        self.pagehistory_set.create(
+            title=self.title,
+            path=self.path,
+            body=self.body,
+            body_html=self.body_html,
+            status=self.status,
+            publish_date=self.publish_date
+        )
 
     def clean_fields(self, exclude=None):
         super(Page, self).clean_fields(exclude)
         hookset.validate_path(self.path)
+
+
+class PageHistory(models.Model):
+
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, editable=False)
+    title = models.CharField(max_length=100, editable=False)
+    path = models.CharField(max_length=100, editable=False)
+    body = models.TextField(editable=False)
+    body_html = models.TextField(blank=True, editable=False)
+    status = models.IntegerField(default=2, editable=False)
+    publish_date = models.DateTimeField(default=timezone.now, editable=False)
+    created = models.DateTimeField(editable=False, default=timezone.now)
+
+    def __str__(self):
+        return "{} - {}".format(self.title, self.created)
 
 
 def generate_filename(instance, filename):
@@ -61,4 +80,4 @@ class File(models.Model):
     created = models.DateTimeField(default=timezone.now)
 
     def download_url(self):
-        return reverse("file_download", args=[self.pk, os.path.basename(self.file.name).lower()])
+        return reverse("pinax_pages:file_download", args=[self.pk, os.path.basename(self.file.name).lower()])

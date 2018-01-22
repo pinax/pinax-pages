@@ -4,8 +4,7 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import static
 
-from django.contrib.auth.decorators import login_required
-
+from .compat import login_required
 from .models import Page, File
 from .forms import PageForm, FileUploadForm
 
@@ -34,7 +33,7 @@ def page(request, path):
 
     if page is None:
         if editable:
-            return redirect("pages_page_edit", path=path)
+            return redirect("pinax_pages:pages_page_edit", path=path)
         else:
             raise Http404
 
@@ -93,7 +92,7 @@ def file_create(request):
                     "file": form.cleaned_data["file"],
                 }
                 File.objects.create(**kwargs)
-            return redirect("file_index")
+            return redirect("pinax_pages:file_index")
     else:
         form = FileUploadForm()
 
@@ -126,4 +125,4 @@ def file_delete(request, pk):
     if request.method == "POST":
         file.delete()
         # @@@ message
-    return redirect("file_index")
+    return redirect("pinax_pages:file_index")

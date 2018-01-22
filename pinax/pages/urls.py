@@ -3,6 +3,7 @@ from django.conf.urls import url
 from .conf import settings
 from .views import file_index, file_create, file_download, file_delete, page_edit, page
 
+app_name = "pinax_pages"
 
 urlpatterns = [
     url(r"^files/$", file_index, name="file_index"),
